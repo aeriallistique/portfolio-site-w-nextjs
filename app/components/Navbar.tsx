@@ -7,9 +7,9 @@ import Image from "next/image";
 const Navbar = async () => {
   const session = await auth()
   return (
-    <nav className="border-b bg-background w-full flex items-center">
+    <nav className="border-b bg-background w-10/12 mx-auto flex items-center">
       <div className="flex w-full items-center justify-between my-4 ">
-        <Link className="font-bold" href="/">Home</Link>
+        <Link className="font-bold" href="/">Andrei TAZLAUANU</Link>
         <div className="flex items-center gap-x-5">
           <Link href="/middleware">Middleware</Link>
           <Link href="/server">Server</Link>
