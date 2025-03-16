@@ -4,7 +4,7 @@ export default async function Home() {
 
 
   return (
-    <main className="flex h-full items-center justify-center">
+    <main className="flex h-full items-center justify-center border">
       <h1 className="text-3xl">landing page</h1>
     </main>
   );
