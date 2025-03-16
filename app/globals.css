@@ -5,3 +5,34 @@ body {
   color: white; */
 
 }
+
+.hoverEffect,
+.activeLink {
+  position: relative;
+}
+
+.hoverEffect::after,
+.activeLink::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 0;
+  height: 1px;
+  width: 100%;
+  background-color: black;
+  transition: all .2s ease-in-out 0s;
+  visibility: hidden;
+  transform: scaleX(0);
+
+}
+
+.hoverEffect:hover::after {
+  visibility: visible;
+  transform: scaleX(1);
+}
+
+.hoverEffect:focus::after,
+.activeLink::after {
+  visibility: visible;
+  transform: scaleX(1);
+}
