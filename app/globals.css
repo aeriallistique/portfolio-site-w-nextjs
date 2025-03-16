@@ -36,3 +36,15 @@ body {
   visibility: visible;
   transform: scaleX(1);
 }
+
+.title-anchor {
+  text-transform: lowercase;
+  font-family: 'Roboto Slab', serif;
+  color: rgb(71, 71, 213);
+
+}
+
+.title-anchor:hover {
+  display: inline-block;
+  text-decoration: underline;
+}
