@@ -31,7 +31,7 @@ export const { handlers: { GET, POST },
       },
     }),
     Credentials({
-      // name: 'credentials',
+      name: 'credentials',
       credentials: {
         email: { label: "Email", type: "email", placeholder: "email@example.com", },
         password: { label: 'Password', type: 'password' },
@@ -49,7 +49,7 @@ export const { handlers: { GET, POST },
           }
         })
         if (!user) {
-          user = await db.user.create({
+          user = await db.create({
             data: {
               email,
               hashedPassword: hash,
