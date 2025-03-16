@@ -1,21 +1,36 @@
+"use client"
 import Link from "next/link";
 import React from "react";
 import { auth } from "@/auth";
 import Logout from "./Logout";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 
-const Navbar = async () => {
-  const session = await auth()
+const Navbar = () => {
+  // const session = await auth()
+  const path = usePathname()
+  const navLinks = [
+    { href: "/", label: "ABOUT" },
+    { href: "/work", label: "WORK" },
+    { href: "/lab", label: "LAB" },
+    { href: "/contact", label: "CONTACT" },
+    { href: "/blog", label: "BLOG" },
+  ]
+
   return (
     <nav className="border-b w-10/12 mx-auto flex items-center justify-between">
       <div className="flex w-full items-center justify-between my-4 text-xl">
         <Link className="font-extralight" href="/">ANDREI <b>TAZLAUANU</b></Link>
         <div className="flex items-center gap-x-5">
-          <Link className="" href="/">ABOUT</Link>
-          <Link href="/work">WORK</Link>
-          <Link href="/lab">LAB</Link>
-          <Link href="/contact">CONTACT</Link>
-          <Link href="/blog">BLOG</Link>
+          {navLinks.map(({ href, label }) => (
+            <Link
+              key={href}
+              href={href}
+              className={`hoverEffect ${path === href ? "activeLink" : ''}`}
+            >
+              {label}
+            </Link>
+          ))}
         </div>
         {/* <div className="flex items-center gap-x-5">
           {!session?.user ? (
