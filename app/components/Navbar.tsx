@@ -7,14 +7,17 @@ import Image from "next/image";
 const Navbar = async () => {
   const session = await auth()
   return (
-    <nav className="border-b bg-background w-10/12 mx-auto flex items-center">
-      <div className="flex w-full items-center justify-between my-4 ">
-        <Link className="font-bold" href="/">Andrei TAZLAUANU</Link>
+    <nav className="border-b w-10/12 mx-auto flex items-center justify-between">
+      <div className="flex w-full items-center justify-between my-4 text-xl">
+        <Link className="font-extralight" href="/">ANDREI <b>TAZLAUANU</b></Link>
         <div className="flex items-center gap-x-5">
-          <Link href="/middleware">Middleware</Link>
-          <Link href="/server">Server</Link>
+          <Link className="" href="/">ABOUT</Link>
+          <Link href="/work">WORK</Link>
+          <Link href="/lab">LAB</Link>
+          <Link href="/contact">CONTACT</Link>
+          <Link href="/blog">BLOG</Link>
         </div>
-        <div className="flex items-center gap-x-5">
+        {/* <div className="flex items-center gap-x-5">
           {!session?.user ? (
             <Link href="/sign-in">
               <div className="bg-blue-600 text-white text-sm px-4 py-2 rounded-sm">Login</div>
@@ -37,7 +40,7 @@ const Navbar = async () => {
             </>
           )}
 
-        </div>
+        </div> */}
       </div>
     </nav>
   )
