@@ -26,9 +26,9 @@ export default async function RootLayout({
         >
           <div className="max-w-screen h-screen flex flex-col">
             <Navbar />
-            <div className="flex-grow">
-              {children}
-            </div>
+
+            {children}
+
           </div>
         </body>
       </html>

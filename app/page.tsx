@@ -1,24 +1,26 @@
-import Image from "next/image";
+import GithubIcon from "./components/GithubIcon";
 
 export default async function Home() {
 
 
   return (
     <main className="w-full h-full mx-auto bg-gray-100">
-      <div className="bg-gray-100 w-10/12 mx-auto pt-8">
-        <h1>Who am I ?
-          <br></br>
-          An <a href="../Acro-Site/index.html" className="title-anchor">[acrobat]</a>,
-          a <br></br>
-          <a href="../Acro-Site/index.html" className="title-anchor">[Guinness World Record holder]</a>,
-          full stack developer, prototyper, CSS animator, HTLM5 banner developer,
-          canvas game developer, JavaScript bug fixer [...]<br></br>
-          A full time acrobat turned web developer.
-        </h1>
+      <div className="bg-gray-100 w-10/12 mx-auto">
+        <div className="bg-gray-100 mt-8 text-2xl">
+          <h1>Who am I ?
+            <br></br>
+            An <a href="../Acro-Site/index.html" className="title-anchor">[acrobat]</a>,
+            a <br></br>
+            <a href="../Acro-Site/index.html" className="title-anchor">[Guinness World Record holder]</a>,
+            full stack developer, prototyper, CSS animator, HTLM5 banner developer,
+            canvas game developer, JavaScript bug fixer [...]<br></br>
+            A full time acrobat turned web developer.
+          </h1>
 
-        <h3>Find me on GitHub: <a href="https://github.com/aeriallistique" target="_blank"><i
-          className="fab fa-github github"></i></a>
-        </h3>
+          <h3 className="flex items-center my-6">Find me on GitHub:
+            <GithubIcon></GithubIcon>
+          </h3>
+        </div>
         <p>I am a creative guy from Romania.</p>
 
         <p> I arrived in Manchester
