@@ -21,14 +21,10 @@ export default async function RootLayout({
   return (
     <SessionProvider session={session}>
       <html lang="en">
-        <body
-          className={robotoSlab.className}
-        >
+        <body className={robotoSlab.className}>
           <div className="max-w-screen h-screen flex flex-col">
             <Navbar />
-            <div className="flex-grow">
-              {children}
-            </div>
+            {children}
           </div>
         </body>
       </html>
