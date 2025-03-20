@@ -1,14 +1,19 @@
+"use client"
+import { useEffect, useState } from "react"
 import { OpeningStatement } from "./OpeningStatement"
 
 
 export const Description = () => {
+  const [yearsInManny, setYearsInManny] = useState<number | null>(null)
+  useEffect(() => {
+    setYearsInManny(Number(new Date().getFullYear() - 2015))
+  }, [])
   return (
     <div className="bg-gray-100 w-11/12 md:w-8/12 lg:w-6/12  mx-auto">
       <OpeningStatement />
 
       <p className="mb-4">I am a creative guy from Romania.</p>
-      <p className="mb-4"> I arrived in Manchester
-        <script>document.write(new Date().getFullYear() - 2015);</script> years ago.
+      <p className="mb-4"> I arrived in Manchester {yearsInManny} years ago.
         I possess an abundance of passion, perseverance and great
         apetite for learning.
       </p>

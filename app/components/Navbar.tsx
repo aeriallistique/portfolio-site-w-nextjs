@@ -1,14 +1,18 @@
 "use client"
 import Link from "next/link";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { auth } from "@/auth";
 import Logout from "./Logout";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
+import { Menu } from "lucide-react";
 
 const Navbar = () => {
+  const [isMenu, setIsMenu] = useState(false)
   // const session = await auth()
   const path = usePathname()
+
+
   const navLinks = [
     { href: "/", label: "ABOUT" },
     { href: "/work", label: "WORK" },
@@ -17,12 +21,21 @@ const Navbar = () => {
     { href: "/blog", label: "BLOG" },
   ]
 
+  useEffect(() => {
+    setIsMenu(false)
+  }, [path])
+
+  const handleHamburgerMenu = (e: React.MouseEvent<HTMLElement>) => {
+    e.preventDefault()
+    setIsMenu(prev => !prev);
+  }
+
   return (
-    <div className="w-full bg-white z-50">
-      <nav className=" bg-white w-10/12 h-20 mx-auto flex  items-center justify-between ">
-        <div className="flex flex-col sm:flex-row w-full items-center justify-between my-4 text-xl">
+    <div className="w-full bg-white z-50 overflow-hidden">
+      <nav className="h-full bg-white w-full md:w-10/12 py-2 sm:px-4 mx-auto flex  items-center justify-between">
+        <div className="flex flex-col ml-4 sm:ml-0 sm:flex-row sm:text-xl sm:w-full items-center justify-between my-4 text-lg relative ">
           <Link className="font-extralight" href="/">ANDREI <b>TAZLAUANU</b></Link>
-          <div className="flex items-center gap-x-5">
+          <div className="hidden sm:visible  sm:flex sm:items-center gap-x-5 ">
             {navLinks.map(({ href, label }) => (
               <Link
                 key={href}
@@ -56,6 +69,23 @@ const Navbar = () => {
             </>
           )}
         </div> */}
+        </div>
+        {/* insert hamburger menu here */}
+        <button
+          onClick={(e) => handleHamburgerMenu(e)}
+          className={`${isMenu ? 'transform -rotate-90 ' : ''} transition duration-700 sm:hidden mr-8 cursor-pointer border rounded p-1`}>
+          <Menu className="" />
+        </button>
+        <div className={!isMenu ? `hidden` : `w-full h-6/12 absolute translate-y-65  bg-white  flex flex-col justify-center items-center opacity-95  transform transition duration-700`} >
+          {navLinks.map(({ href, label }) => (
+            <Link
+              key={href}
+              href={href}
+              className={` text-3xl hoverEffect my-4`}
+            >
+              {label}
+            </Link>
+          ))}
         </div>
       </nav>
     </div>
