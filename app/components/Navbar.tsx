@@ -18,21 +18,22 @@ const Navbar = () => {
   ]
 
   return (
-    <nav className=" bg-white w-10/12 h-20 mx-auto flex  items-center justify-between z-50">
-      <div className="flex flex-col sm:flex-row w-full items-center justify-between my-4 text-xl">
-        <Link className="font-extralight" href="/">ANDREI <b>TAZLAUANU</b></Link>
-        <div className="flex items-center gap-x-5">
-          {navLinks.map(({ href, label }) => (
-            <Link
-              key={href}
-              href={href}
-              className={`hoverEffect ${path === href ? "activeLink" : ''}`}
-            >
-              {label}
-            </Link>
-          ))}
-        </div>
-        {/* <div className="flex items-center gap-x-5">
+    <div className="w-full bg-white z-50">
+      <nav className=" bg-white w-10/12 h-20 mx-auto flex  items-center justify-between ">
+        <div className="flex flex-col sm:flex-row w-full items-center justify-between my-4 text-xl">
+          <Link className="font-extralight" href="/">ANDREI <b>TAZLAUANU</b></Link>
+          <div className="flex items-center gap-x-5">
+            {navLinks.map(({ href, label }) => (
+              <Link
+                key={href}
+                href={href}
+                className={`hoverEffect ${path === href ? "activeLink" : ''}`}
+              >
+                {label}
+              </Link>
+            ))}
+          </div>
+          {/* <div className="flex items-center gap-x-5">
           {!session?.user ? (
             <Link href="/sign-in">
               <div className="bg-blue-600 text-white text-sm px-4 py-2 rounded-sm">Login</div>
@@ -55,8 +56,9 @@ const Navbar = () => {
             </>
           )}
         </div> */}
-      </div>
-    </nav>
+        </div>
+      </nav>
+    </div>
   )
 }
 
