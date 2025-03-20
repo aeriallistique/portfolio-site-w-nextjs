@@ -28,6 +28,18 @@ const slideInfo = [
     link2URL: "https://github.com/aeriallistique/nc-news-react?tab=readme-ov-file",
     link2Text: 'Github repo'
   },
+  {
+    image: '/pull-up-timer.png',
+    imageAlt: 'pull-up timer on a pink background',
+    h2: 'Pull-up Timer',
+    p: 'A small app I developed to help me train and beat the World Record for Most Pull-ups in 24 hours.',
+    p1: 'See live version here:',
+    link1URL: 'https://wr-pull-up-timer.netlify.app/',
+    link1Text: 'Pull-up Timer',
+    p2: 'See the Github repo here:',
+    link2URL: "https://github.com/aeriallistique/pullup-timer-counter",
+    link2Text: 'Github repo'
+  },
 ]
 
 
@@ -103,8 +115,8 @@ const WorkPage = () => {
 
     <main className="w-full h-full flex flex-col relative">
       <section
-        className={`w-full absolute flex flex-col lg:flex-row transition-all duration-[3000ms] ease-in-out  h-full opacity-100 ${currentSlide === 0 ? "" : "-translate-y-full opacity-0"} `} >
-        <figure className="w-full h-9/12 lg:w-9/12">
+        className={`w-full h-full absolute flex flex-col lg:flex-row transition-all duration-1000 ease-in-out  opacity-100 ${currentSlide === 0 ? "" : "-translate-y-full opacity-0"} `} >
+        <figure className="w-full h-9/12 lg:w-9/12 lg:h-full">
           <img className="w-full h-full object-contain bg-gray-200" src={slideInfo[0].image} alt={slideInfo[0].imageAlt} />
         </figure>
         <aside className="w-full flex flex-col flex-1 justify-between bg-gray-700 text-amber-50">
@@ -138,9 +150,9 @@ const WorkPage = () => {
       {/* SECOND SLIDE */}
 
       <section
-        className={`w-full flex flex-col lg:flex-row transition-all duration-[3000ms] ease-in-out h-full  ${currentSlide === 1 ? "" : "-translate-y-full opacity-0"} `} >
+        className={`w-full h-full absolute flex flex-col lg:flex-row transition-all duration-1000 ease-in-out ${currentSlide === 1 ? "" : "-translate-y-full opacity-0"} `} >
         <figure
-          className="w-full h-9/12 lg:w-9/12">
+          className="w-full h-9/12 lg:w-9/12 lg:h-full">
           <img className="w-full h-full object-contain bg-gray-200" src={slideInfo[1].image} alt={slideInfo[1].imageAlt} />
         </figure>
         <aside className="w-full flex flex-col flex-1 justify-between bg-gray-700 text-amber-50">
@@ -171,8 +183,41 @@ const WorkPage = () => {
           </div>
         </aside>
       </section>
+      {/* THIRD SLIDE */}
+      <section
+        className={`w-full h-full absolute flex flex-col lg:flex-row transition-all duration-1000 ease-in-out  ${currentSlide === 2 ? "" : "-translate-y-full opacity-0"} `} >
+        <figure
+          className="w-full h-9/12 lg:w-9/12 lg:h-full">
+          <img className="w-full h-full object-contain bg-gray-200" src={slideInfo[2].image} alt={slideInfo[2].imageAlt} />
+        </figure>
+        <aside className="w-full flex flex-col flex-1 justify-between bg-gray-700 text-amber-50">
+          <div className="p-4 lg:h-10/12 lg:flex lg:flex-col lg:justify-center ">
+            <h2 className=" my-2 text-lg lg:text-xl lg:border-b lg:mb-8 lg:pb-4">{slideInfo[2].h2}</h2>
+            <p className="text-sm font-extralight mb-1 lg:border-b lg:mb-8 lg:pb-4">{slideInfo[2].p}</p>
+            <p className="text-sm font-extralight mb-1 lg:border-b lg:mb-8 lg:pb-4">{slideInfo[2].p1}
+              <Link href={slideInfo[2].link1URL}
+                target="_blank"
+                className="ml-2 font-medium underline hover:text-blue-400" id="lab_exp">{slideInfo[2].link1Text}</Link></p>
+            <p className="text-sm font-extralight mb-1 lg:border-b lg:mb-8 lg:pb-4">{slideInfo[2].p2}
+              <Link href={slideInfo[2].link2URL}
+                target="_blank"
+                className="ml-2 font-medium underline hover:text-blue-400" id="lab_exp">{slideInfo[2].link2Text}</Link></p>
+          </div>
+          <div className="flex pl-4 lg:h-1/10">
+            <button className="cursor-pointer hover:text-gray-300"
+              onClick={(e) => handleNext(e)}>
+              <ChevronDown size={42} />
+            </button>
+            <button
+              className={`cursor-pointer hover:text-gray-300 ${currentSlide === 0 ? 'hidden' : ''}`}
 
-
+              onClick={(e) => handlePrev(e)}
+            >
+              <ChevronUp size={42} />
+            </button>
+          </div>
+        </aside>
+      </section>
 
     </main>
   )
