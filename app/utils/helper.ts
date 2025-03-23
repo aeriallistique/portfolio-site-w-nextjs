@@ -46,3 +46,34 @@ export const slideInfo = [
     link2Text: 'Github repo'
   },
 ]
+
+export const linkCards = [
+  {
+    href: '/world-time',
+    hoverDescription: 'A simple app showing the time in various parts of the world, using js and plain css.',
+    imageSrc: '/world-time.png',
+    imageAlt: "world clock showing different times",
+    projectTitle: 'World Time'
+  },
+  {
+    href: '/text-effect',
+    hoverDescription: 'A text effect project with cool animation using the html canvas element.',
+    imageSrc: '/text-effect.png',
+    imageAlt: "a text effect",
+    projectTitle: 'Text Effect & Animation'
+  },
+  {
+    href: '/tic-tac-toe',
+    hoverDescription: 'The evergreen tic-tac-toe game with vanilla javascript and plain css.',
+    imageSrc: '/tic-tac-toe.png',
+    imageAlt: "tic-tac-toe game",
+    projectTitle: 'Tic-tac-toe game'
+  },
+  {
+    href: '/trivia-numbers',
+    hoverDescription: 'A simple app that leverages the numbersapi free resource built with vanilla javascript and plain css.',
+    imageSrc: '/trivia-numbers.png',
+    imageAlt: "numbers and dates trivia",
+    projectTitle: 'Numbers and dates trivia.'
+  }
+]
