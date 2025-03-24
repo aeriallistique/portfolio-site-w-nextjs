@@ -4,6 +4,7 @@ import "./globals.css";
 import { SessionProvider } from "next-auth/react";
 import { auth } from "@/auth";
 import Navbar from "./components/Navbar";
+import { LayoutWrapper } from "./components/LayoutWrapper";
 
 const robotoSlab = Roboto_Slab({ subsets: ["latin"], weight: ['200', '400', '700'] });
 
@@ -23,10 +24,10 @@ export default async function RootLayout({
     <SessionProvider session={session}>
       <html lang="en">
         <body className={robotoSlab.className}>
-          <div className={`max-w-screen h-screen flex flex-col bg-white`}>
+          <LayoutWrapper>
             <Navbar />
             {children}
-          </div>
+          </LayoutWrapper>
         </body>
       </html>
     </SessionProvider>
