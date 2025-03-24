@@ -18,11 +18,12 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   const session = await auth()
+
   return (
     <SessionProvider session={session}>
       <html lang="en">
         <body className={robotoSlab.className}>
-          <div className="max-w-screen h-screen flex flex-col bg-white">
+          <div className={`max-w-screen h-screen flex flex-col bg-white`}>
             <Navbar />
             {children}
           </div>

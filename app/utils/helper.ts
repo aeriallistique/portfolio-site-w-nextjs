@@ -75,5 +75,12 @@ export const linkCards = [
     imageSrc: '/trivia-numbers.png',
     imageAlt: "numbers and dates trivia",
     projectTitle: 'Numbers and dates trivia.'
+  },
+  {
+    href: '/invisible-page',
+    hoverDescription: 'Invisible page. Run your mouse or finger across the blank page to revel it\'s contents.',
+    imageSrc: '/invisible-page.png',
+    imageAlt: "blank white page",
+    projectTitle: 'Invisible landing page.'
   }
 ]
