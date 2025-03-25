@@ -1,11 +1,5 @@
 @import "tailwindcss";
 
-body {
-  /* background-color: #1d1d1d;
-  color: white; */
-
-}
-
 .hoverEffect,
 .activeLink {
   position: relative;
@@ -50,93 +44,6 @@ body {
 }
 
 /* WORLD TIME LOCAL TIME */
-.timezone-container {
-  width: 95vw;
-  margin: .1rem auto;
-  height: auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
-.rom,
-.las,
-.mun,
-.ist,
-.dub,
-.mac,
-.bri,
-.cur {
-  /* background: linear-gradient(90deg, rgba(37, 246, 140, 1) 0%, rgba(44, 243, 249, 1) 100%); */
-  margin: .5rem;
-  padding: 1rem;
-  border: .05rem solid rgb(74, 67, 67);
-  box-shadow: 5px 6px 10px rgb(125, 123, 123);
-  color: rgba(28, 10, 10, 0.7);
-  cursor: pointer;
-  height: 9vw;
-  width: 9vw;
-  min-height: 100px;
-  min-width: 100px;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 1rem;
-}
-
-button:hover {
-  transform: scale(1.05);
-  transition: all .3s ease-in-out;
-}
-
-/* .rom,
-.ist,
-.mac {
-  color: white
-} */
-
-@media only screen and (min-width: 1300px) {
-
-  .rom,
-  .las,
-  .mun,
-  .ist,
-  .dub,
-  .mac,
-  .bri,
-  .cur {
-    font-size: 1.3rem;
-  }
-}
-
-.rom:focus,
-.las:focus,
-.mun:focus,
-.ist:focus,
-.dub:focus,
-.mac:focus,
-.bri:focus,
-.cur:focus {
-  outline: transparent;
-}
-
-/* .cur {
-  background: rgb(216, 168, 168);
-} */
-
-.container {
-  height: 33vw;
-  width: 33vw;
-  min-width: 350px;
-  min-height: 350px;
-  border: 2px solid black;
-  border-radius: 50%;
-  margin: 1rem auto;
-  position: relative;
-  padding: 1rem;
-}
 
 .number {
   position: absolute;
