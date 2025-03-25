@@ -78,9 +78,145 @@ export const linkCards = [
   },
   {
     href: '/invisible-page',
-    hoverDescription: 'Invisible page. Run your mouse or finger across the blank page to revel it\'s contents.',
+    hoverDescription: 'Invisible page. Run your mouse or finger across the blank page to reveal it\'s contents.',
     imageSrc: '/invisible-page.png',
     imageAlt: "blank white page",
     projectTitle: 'Invisible landing page.'
+  },
+  {
+    href: '/ping-pong',
+    hoverDescription: 'Ping pong game build with the powerful canvas html element and vanilla javascript.',
+    imageSrc: '/ping-pong.png',
+    imageAlt: "ping-pong table",
+    projectTitle: 'Ping pong game.'
+  },
+  {
+    href: '/flappy-bird',
+    hoverDescription: 'Flappy bird game built with vanilla javascript and canvas html element.',
+    imageSrc: '/flappy-bird.png',
+    imageAlt: "welcome screen for flappy bird game",
+    projectTitle: 'Flappy bird game.'
+  }
+]
+
+export const TimezoneButons = [
+  {
+    id: 'romania',
+    class: 'rom bg-green-300',
+    data: 2,
+    color: 'bg-green-300',
+    text: 'Bucharest'
+  },
+  {
+    id: 'vegas',
+    class: 'las bg-yellow-200',
+    data: -8,
+    color: 'bg-yellow-200',
+    text: 'Las Vegas'
+  },
+  {
+    id: 'munich',
+    class: 'mun bg-blue-300',
+    data: 1,
+    color: 'bg-blue-300',
+    text: 'Munich'
+  },
+  {
+    id: 'istanbul',
+    class: 'ist bg-amber-300',
+    data: 3,
+    color: 'bg-amber-300',
+    text: 'Istanbul'
+  },
+  {
+    id: 'dubai',
+    class: 'dub bg-orange-300',
+    data: 4,
+    color: 'bg-orange-300',
+    text: 'Dubai'
+  },
+  {
+    id: 'macau',
+    class: 'mac bg-purple-300',
+    data: 8,
+    color: 'bg-purple-300',
+    text: 'Macau'
+  },
+  {
+    id: 'brisbane',
+    class: 'bri bg-pink-300',
+    data: 10,
+    color: 'bg-pink-300',
+    text: 'Brisbane'
+  },
+  {
+    id: 'current',
+    class: 'cur bg-gray-300',
+    data: 0,
+    color: 'bg-gray-300',
+    text: 'Local'
+  }
+]
+
+export const MainClock = [
+  {
+    class: 'number number1',
+    spanClass: 'one',
+    spanText: 1
+  },
+  {
+    class: 'number number2',
+    spanClass: 'two',
+    spanText: 2
+  },
+  {
+    class: 'number number3',
+    spanClass: 'three',
+    spanText: 3
+  },
+  {
+    class: 'number number4',
+    spanClass: 'four',
+    spanText: 4
+  },
+  {
+    class: 'number number5',
+    spanClass: 'five',
+    spanText: 5
+  },
+  {
+    class: 'number number6',
+    spanClass: 'six',
+    spanText: 6
+  },
+  {
+    class: 'number number7',
+    spanClass: 'seven',
+    spanText: 7
+  },
+  {
+    class: 'number number8',
+    spanClass: 'eight',
+    spanText: 8
+  },
+  {
+    class: 'number number9',
+    spanClass: 'nine',
+    spanText: 9
+  },
+  {
+    class: 'number number10',
+    spanClass: 'ten',
+    spanText: 10
+  },
+  {
+    class: 'number number11',
+    spanClass: 'eleven',
+    spanText: 11
+  },
+  {
+    class: 'number number12',
+    spanClass: 'twelve',
+    spanText: 12
   }
 ]
