@@ -10,7 +10,6 @@ const WorldTime = () => {
   let minutes;
   let hours;
 
-
   useEffect(() => {
     let hoursEl = document.querySelector('.hours') as HTMLElement | null;
     let minutesEl = document.querySelector('.minutes') as HTMLElement | null;
