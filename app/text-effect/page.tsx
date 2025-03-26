@@ -182,6 +182,7 @@ const TextEffect = () => {
           value={inputDisplayWord}
           className="input-field   bg-white py-1.5 px-2 outline-0 rounded-xs"
           id="input"
+          max={10}
           onChange={(e) => setInputDisplayWord(e.target.value)}
         />
         <button
