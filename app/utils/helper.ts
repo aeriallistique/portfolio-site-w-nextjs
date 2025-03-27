@@ -1,5 +1,24 @@
 import bcrypt from "bcryptjs";
 
+type Ball = {
+  x: number;
+  y: number;
+  radius: number;
+  speed: number;
+  velocityX: number;
+  velocityY: number;
+  color: string;
+};
+
+type Paddle = {
+  x: number;
+  y: number;
+  width: number;
+  height: number;
+  color: string;
+  score: number;
+};
+
 
 export function saltAndHashPassword(password: any) {
   const saltRounds = 10;
