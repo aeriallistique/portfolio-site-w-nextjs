@@ -259,7 +259,20 @@ export const Months = [
   { value: 12, month: 'December' },
 ]
 
+const baseApi = axios.create({
+  baseURL: `http://numbersapi.com`
+});
+
 export const getDateFact = async (month: number, day: number) => {
-  const fact = await axios.get(`http://numbersapi.com/${month}/${day}/date`)
-  return fact.data;
+  const { data } = await baseApi.get(`/${month}/${day}/date`)
+  return data;
+}
+
+export const getNumberTrivia = async (year: number, type: string) => {
+  const { data } = await baseApi.get(`/${year}/${type}`)
+  return data;
+}
+export const getRandomFact = async (category: string) => {
+  const { data } = await baseApi.get(`/random/${category}`)
+  return data;
 }
