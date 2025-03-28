@@ -1,24 +1,5 @@
 import bcrypt from "bcryptjs";
-
-type Ball = {
-  x: number;
-  y: number;
-  radius: number;
-  speed: number;
-  velocityX: number;
-  velocityY: number;
-  color: string;
-};
-
-type Paddle = {
-  x: number;
-  y: number;
-  width: number;
-  height: number;
-  color: string;
-  score: number;
-};
-
+import axios from "axios"
 
 export function saltAndHashPassword(password: any) {
   const saltRounds = 10;
@@ -27,6 +8,7 @@ export function saltAndHashPassword(password: any) {
   return hash;
 }
 
+// work page
 export const slideInfo = [
   {
     image: '/hedgehog.png',
@@ -118,6 +100,27 @@ export const linkCards = [
   }
 ]
 
+// pin pong game
+type Ball = {
+  x: number;
+  y: number;
+  radius: number;
+  speed: number;
+  velocityX: number;
+  velocityY: number;
+  color: string;
+};
+
+type Paddle = {
+  x: number;
+  y: number;
+  width: number;
+  height: number;
+  color: string;
+  score: number;
+};
+
+// time zone clock
 export const TimezoneButons = [
   {
     id: 'romania',
@@ -239,3 +242,24 @@ export const MainClock = [
     spanText: 12
   }
 ]
+
+// numbers trivia
+export const Months = [
+  { value: 1, month: 'January' },
+  { value: 2, month: 'Ferbuary' },
+  { value: 3, month: 'March' },
+  { value: 4, month: 'April' },
+  { value: 5, month: 'May' },
+  { value: 6, month: 'June' },
+  { value: 7, month: 'July' },
+  { value: 8, month: 'August' },
+  { value: 9, month: 'September' },
+  { value: 10, month: 'October' },
+  { value: 11, month: 'November' },
+  { value: 12, month: 'December' },
+]
+
+export const getDateFact = async (month: number, day: number) => {
+  const fact = await axios.get(`http://numbersapi.com/${month}/${day}/date`)
+  return fact.data;
+}
