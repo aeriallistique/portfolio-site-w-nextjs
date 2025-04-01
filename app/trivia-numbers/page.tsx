@@ -13,9 +13,9 @@ const TriviaNumbers = () => {
   const [numberTriviaFact, setNumberTriviaFact] = useState('')
   const [category, setCategory] = useState('')
   const [randomFact, setRandomFact] = useState('')
-
   const [year, setYear] = useState(0)
   const [number, setNumber] = useState(0)
+  const [error, setError] = useState(false)
 
   useEffect(() => {
     if (month === 2) setDaysInMonth(28);
@@ -38,8 +38,6 @@ const TriviaNumbers = () => {
     e.preventDefault();
     const formElement = e.currentTarget;
     const valueText = formElement.getAttribute("aria-valuetext") ?? "";
-    console.log(valueText);
-
     const fact = await getNumberTrivia(number, valueText)
     if (valueText === 'math') {
       setMathFact(fact)
@@ -50,8 +48,14 @@ const TriviaNumbers = () => {
 
   const handleRandomFact = async (e: FormEvent) => {
     e.preventDefault();
-    const fact = await getRandomFact(category)
-    setRandomFact(fact)
+    try {
+      const fact = await getRandomFact(category)
+      setRandomFact(fact)
+    } catch (error) {
+      console.log(error);
+      setError(true)
+    }
+
   }
 
   return (
@@ -208,7 +212,7 @@ const TriviaNumbers = () => {
           <button
             className={category === "" ? `disabled bg-gray-300 rounded p-1 cursor-not-allowed` : `bg-green-300 p-1 rounded cursor-pointer hover:bg-green-200 ml-2`} >Get random fact</button>
         </form>
-        <h5 className="">{randomFact}</h5>
+        <h5 className="">{!error ? randomFact : 'Something went wrong! Please try again'}</h5>
       </div>
     </div >
   )
