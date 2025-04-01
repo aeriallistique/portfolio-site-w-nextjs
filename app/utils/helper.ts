@@ -274,9 +274,15 @@ export const getNumberTrivia = async (year: number, type: string) => {
 }
 export const getRandomFact = async (category: string) => {
   try {
-    const { data } = await baseApi.get(`/rando/${category}`)
-    return data;
+    const { data } = await baseApi.get(`/random/${category}`)
+    return {
+      fact: data,
+      err: false
+    }
   } catch (error) {
-    return error
+    return {
+      fact: `${error?.message}. Please try again.`,
+      err: true
+    }
   }
 }

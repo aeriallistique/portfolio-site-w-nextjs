@@ -2,6 +2,7 @@
 
 import { FormEvent, useEffect, useState } from "react"
 import { getDateFact, getNumberTrivia, getRandomFact, Months } from "../utils/helper"
+import { log } from "node:console"
 
 const TriviaNumbers = () => {
   const [month, setMonth] = useState(0)
@@ -48,15 +49,15 @@ const TriviaNumbers = () => {
 
   const handleRandomFact = async (e: FormEvent) => {
     e.preventDefault();
-    try {
-      const fact = await getRandomFact(category)
+    const { fact, err } = await getRandomFact(category)
+    if (err) {
       setRandomFact(fact)
-    } catch (error) {
-      console.log(error);
-      setError(true)
+      setError(prev => !prev)
+    } else {
+      setRandomFact(fact)
     }
-
   }
+
 
   return (
     <div className="w-11/12 mx-auto ">
@@ -95,7 +96,8 @@ const TriviaNumbers = () => {
             id="day"
             onChange={(e) => { setDay(Number(e.target.value)) }}
           >
-            <option defaultValue="" disabled >Day</option>
+            <option defaultValue="0"  >Day</option>
+
             {/* render days of the month  */}
             {[...Array(daysInMonth)].map((_, index) => (
               <option
@@ -118,7 +120,7 @@ const TriviaNumbers = () => {
           onSubmit={(e) => { handleYearFactSubmit(e) }}
         >
           <input
-            className="border-b border-green-500 outline-none w-18"
+            className="border-b border-green-500 outline-none w-18 focus:bg-green-100"
             type="text"
             id="year"
             placeholder="Year.."
@@ -146,7 +148,7 @@ const TriviaNumbers = () => {
             type="text"
             id="math"
             placeholder="Number..."
-            className="border-b border-green-500 outline-none w-18"
+            className="border-b border-green-500 outline-none w-18 focus:bg-green-100"
             onKeyDown={(e) => {
               if (!/^[0-9]$/.test(e.key) && e.key !== 'Backspace') {
                 e.preventDefault()
@@ -174,7 +176,7 @@ const TriviaNumbers = () => {
             type="text"
             id="trivia"
             placeholder="Number..."
-            className="border-b border-green-500 outline-none w-18"
+            className="border-b border-green-500 outline-none w-18 focus:bg-green-100"
             onKeyDown={(e) => {
               if (!/^[0-9]$/.test(e.key) && e.key !== 'Backspace') {
                 e.preventDefault()
@@ -210,9 +212,9 @@ const TriviaNumbers = () => {
           </select>
 
           <button
-            className={category === "" ? `disabled bg-gray-300 rounded p-1 cursor-not-allowed` : `bg-green-300 p-1 rounded cursor-pointer hover:bg-green-200 ml-2`} >Get random fact</button>
+            className={`bg-green-300 p-1 rounded cursor-pointer hover:bg-green-200 ml-2`} >Get random fact</button>
         </form>
-        <h5 className="">{!error ? randomFact : 'Something went wrong! Please try again'}</h5>
+        <h5 className={error ? `text-center text-red-400 font-extralight` : `text-center`}>{randomFact}</h5>
       </div>
     </div >
   )
