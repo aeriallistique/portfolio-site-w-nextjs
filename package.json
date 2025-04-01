@@ -13,6 +13,7 @@
     "@auth/prisma-adapter": "^2.7.4",
     "@prisma/client": "^6.4.1",
     "@types/bcryptjs": "^2.4.6",
+    "axios": "^1.8.4",
     "bcryptjs": "^3.0.2",
     "lucide-react": "^0.482.0",
     "mongodb": "^6.13.1",
