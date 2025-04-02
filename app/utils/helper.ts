@@ -92,7 +92,7 @@ export const linkCards = [
     projectTitle: 'Ping pong game.'
   },
   {
-    href: '/flappy-bird',
+    href: '/lab/flappy-bird',
     hoverDescription: 'Flappy bird game built with vanilla javascript and canvas html element.',
     imageSrc: '/flappy-bird.png',
     imageAlt: "welcome screen for flappy bird game",
