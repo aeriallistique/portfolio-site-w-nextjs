@@ -120,6 +120,15 @@ type Paddle = {
   score: number;
 };
 
+// invisible landing page
+export type TouchObject = {
+  identifier: number;
+  pageX: number;
+  pageY: number;
+}
+
+export const Colors = ['#0652DD', '#EE5A24', '#6F1E51', '#006266', '#2C3A47', '#82589F', '#20bf6b', '#eb3b5a'];
+
 // time zone clock
 export const TimezoneButons = [
   {
