@@ -44,7 +44,7 @@ export const { handlers: { GET, POST },
         }
 
         const email = credentials.email as string;
-        const hash = saltAndHashPassword(credentials.password);
+        // const hash = saltAndHashPassword(credentials.password);
         let user = await db.user.findUnique({
           where: {
             email,

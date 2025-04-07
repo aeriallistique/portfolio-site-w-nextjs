@@ -25,7 +25,7 @@ model Blog {
   userEmail   String
   blogTitle   String
   blogContent String
-  blogImg     String
+  blogImg     String?
   addedAt     DateTime @default(now())
   user        User     @relation(fields: [userEmail], references: [email])
 }

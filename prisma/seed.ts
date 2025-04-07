@@ -20,6 +20,13 @@ async function main() {
       email: "web.aeriallistique@gmail.com",
       name: 'Andi Taz',
       hashedPassword: password,
+      blog: {
+        create: [{
+          blogTitle: 'First Blog',
+          blogContent: 'a whole lot of text to make it seem like it is a proper blog.',
+          blogImg: ''
+        }]
+      }
     },
   });
   console.log(`Seeded user:`, andi);
