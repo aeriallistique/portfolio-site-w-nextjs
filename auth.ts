@@ -6,6 +6,8 @@ import Credentials from "next-auth/providers/credentials"
 import bcrypt from "bcryptjs"
 import { db } from "./db"
 import { saltAndHashPassword } from "./app/utils/helper"
+const secret = process.env.AUTH_SECRET;
+
 
 export const { handlers: { GET, POST },
   signIn,
@@ -48,15 +50,12 @@ export const { handlers: { GET, POST },
             email,
           }
         })
+        console.log(user);
+
         if (!user) {
-          user = await db.create({
-            data: {
-              email,
-              hashedPassword: hash,
-            }
-          })
+          throw new Error('No user found!!!')
         } else {
-          const isMatched = bcrypt.compareSync(credentials.password as string, user.hashedPassword)
+          const isMatched = await bcrypt.compare(credentials.password as string, user.hashedPassword as string)
           if (!isMatched) {
             throw new Error('Incorrect password')
           }
