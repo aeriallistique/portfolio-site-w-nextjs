@@ -1,7 +1,7 @@
 "use server"
 import { signIn, signOut } from "@/auth"
 import { revalidatePath } from "next/cache"
-import { db } from "@/db"
+import prisma from "@/db"
 import { AnyARecord } from "dns"
 import { AuthError } from "next-auth"
 import { redirect } from "next/navigation"

@@ -1,7 +1,7 @@
 import React from "react";
 // import LoginGithub from "../components/LoginGithub"
 // import LoginGoogle from "../components/LoginGoogle"
-import LoginForm from "../components/PostBlogForm";
+import LoginForm from "../components/LoginForm";
 
 const SignIn = () => {
   return (

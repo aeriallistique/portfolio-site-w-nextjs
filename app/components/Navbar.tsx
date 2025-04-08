@@ -31,7 +31,7 @@ const Navbar = () => {
   }
 
   return (
-    <div className="w-full bg-white z-50 overflow-hidden">
+    <div className="w-full bg-white z-50 overflow-hidden h-18">
       <nav className="h-full bg-white w-full md:w-10/12 py-2 sm:px-4 mx-auto flex  items-center justify-between">
         <div className="flex flex-col ml-4 sm:ml-0 sm:flex-row sm:text-xl sm:w-full items-center justify-between my-4 text-lg relative ">
           <Link className="font-extralight" href="/">ANDREI <b>TAZLAUANU</b></Link>

@@ -4,7 +4,7 @@ import Google from "next-auth/providers/google"
 import { PrismaAdapter } from "@auth/prisma-adapter"
 import Credentials from "next-auth/providers/credentials"
 import bcrypt from "bcryptjs"
-import { db } from "./db"
+import prisma from "./db"
 import { saltAndHashPassword } from "./app/utils/helper"
 const secret = process.env.AUTH_SECRET;
 
@@ -14,7 +14,7 @@ export const { handlers: { GET, POST },
   signOut,
   auth,
 } = NextAuth({
-  adapter: PrismaAdapter(db),
+  adapter: PrismaAdapter(prisma),
   session: { strategy: "jwt" },
   providers: [
     Github({
@@ -45,7 +45,7 @@ export const { handlers: { GET, POST },
 
         const email = credentials.email as string;
         // const hash = saltAndHashPassword(credentials.password);
-        let user = await db.user.findUnique({
+        let user = await prisma.user.findUnique({
           where: {
             email,
           }
