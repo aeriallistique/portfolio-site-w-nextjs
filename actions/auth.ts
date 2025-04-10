@@ -8,7 +8,7 @@ import { redirect } from "next/navigation"
 
 const getUserByEmail = async (email: string) => {
   try {
-    const user = await db.user.findUnique({
+    const user = await prisma.user.findUnique({
       where: {
         email,
       }

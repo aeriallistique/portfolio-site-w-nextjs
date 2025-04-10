@@ -11,34 +11,33 @@ interface Blog {
   // other properties as needed
 }
 
+
 const Blog = async () => {
   const blogs = await prisma.blog.findMany()
 
   return (
-    <div className='text-center bg-gray-200 min-h-[calc(100vh-70px)] pt-2'>
+    <div className='text-center bg-gray-200  h-auto pt-2'>
       <Link
-        href={'/sign-in'}
+        href={'/server'}
         className='bg-blue-600 rounded-md px-6 py-1
          font-medium text-white mx-auto mt-8 text-center'
       >
-        Post a Blog
+        Dashboard
       </Link>
-      <main className="relative text-gray-700 pb-8 mt-8 text-center flex flex-col justify-center items-center gap-6">
+      <main className="relative text-gray-700 pb-8 mt-8 text-center grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2">
         {blogs.map((blog: Blog) => (
           <section
             key={`${Math.random() * blogs.length} ${blog.blogTitle}`}
-            className="w-11/12 flex flex-col justify-center items-center border rounded-2xl overflow-hidden"
+            className="w-11/12 flex flex-col justify-center items-center border shadow-xl hover:shadow-2xl rounded-2xl overflow-hidden mx-auto cursor-pointer"
           >
             <figure className='mx-auto'>
-              <Image
-                src={blog.blogImg === '' ? globe : blog.blogImg}
+              <img
+                src={`${blog.blogImg === '' ? globe : blog.blogImg}`}
                 alt={blog.blogImg === '' ? 'svg vector image of a globe' : blog.blogTitle}
-                width={100}
-                height={100}
-                className="object-fit mt-8"
+                className="block w-full max-h-40 object-cover mt-8"
               />
             </figure>
-            <h1 className='text-4xl mt-4'>{blog.blogTitle}</h1>
+            <h1 className='text-2xl mt-4'>{blog.blogTitle}</h1>
             <article className='w-11/12 h-25 relative overflow-hidden mb-10'>
               <div className=''>
                 {blog.blogContent}

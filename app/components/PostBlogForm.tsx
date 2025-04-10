@@ -12,12 +12,13 @@ const PostBlogForm = () => {
     "use server"
     const title = formData.get("title") as string;
     const content = formData.get("content") as string;
+    const blogImg = formData.get("img") as string;
     await prisma.blog.create({
       data: {
         blogTitle: title,
         blogContent: content,
         userEmail: "web.aeriallistique@gmail.com",
-        blogImg: ''
+        blogImg: blogImg ? blogImg : ''
       }
     });
     revalidatePath('/blog')
@@ -43,10 +44,18 @@ const PostBlogForm = () => {
         name="content"
         id="content"
         rows={10}
-        className="bg-white p-1 rounded-lg mt-1"
+        className="bg-white p-1 rounded-lg mt-1 mb-2"
         placeholder="your content here..."
       >
       </textarea>
+      <label htmlFor="title">Image:</label>
+      <input
+        name="img"
+        type="text"
+        id="img"
+        placeholder="Image link"
+        className="bg-white p-1 rounded-lg mb-2"
+      />
       <button
         className="w-full sm:w-4/12 border px-4 py-1 rounded-lg bg-blue-600 mx-auto text-white mt-4 cursor-pointer "
         type="submit"

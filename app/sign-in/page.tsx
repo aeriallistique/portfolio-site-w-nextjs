@@ -1,6 +1,5 @@
 import React from "react";
-// import LoginGithub from "../components/LoginGithub"
-// import LoginGoogle from "../components/LoginGoogle"
+
 import LoginForm from "../components/LoginForm";
 
 const SignIn = () => {
@@ -9,8 +8,7 @@ const SignIn = () => {
       <section className="flex flex-col w-[400px]">
         <h1 className="text-3xl w-full text-center font-bold mb-6">Sign in</h1>
         <LoginForm />
-        {/* <LoginGithub />
-        <LoginGoogle /> */}
+
       </section>
     </div>
   )

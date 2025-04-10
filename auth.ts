@@ -50,7 +50,6 @@ export const { handlers: { GET, POST },
             email,
           }
         })
-        console.log(user);
 
         if (!user) {
           throw new Error('No user found!!!')
