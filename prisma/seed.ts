@@ -3,6 +3,7 @@ import { Prisma, PrismaClient } from "@prisma/client";
 import bcrypt, { hash } from "bcryptjs";
 const prisma = new PrismaClient();
 const secret = process.env.AUTH_SECRET;
+const pass = process.env.SEED_PASSWORD
 
 function saltAndHashPassword(password: any) {
   const saltRounds = 10;
@@ -12,7 +13,7 @@ function saltAndHashPassword(password: any) {
 }
 
 async function main() {
-  const password = await saltAndHashPassword('password123')
+  const password = await saltAndHashPassword(pass)
   const andi = await prisma.user.upsert({
     where: { email: "web.aeriallistique@gmail.com" },
     update: {},
