@@ -50,6 +50,13 @@ export const slideInfo = [
 
 export const linkCards = [
   {
+    href: '/invisible-page',
+    hoverDescription: 'Invisible page. Run your mouse or finger across the blank page to reveal it\'s contents.',
+    imageSrc: '/invisible-page.png',
+    imageAlt: "blank white page",
+    projectTitle: 'Invisible landing page.'
+  },
+  {
     href: '/world-time',
     hoverDescription: 'A simple app showing the time in various parts of the world, using js and plain css.',
     imageSrc: '/world-time.png',
@@ -76,13 +83,6 @@ export const linkCards = [
     imageSrc: '/trivia-numbers.png',
     imageAlt: "numbers and dates trivia",
     projectTitle: 'Numbers and dates trivia.'
-  },
-  {
-    href: '/invisible-page',
-    hoverDescription: 'Invisible page. Run your mouse or finger across the blank page to reveal it\'s contents.',
-    imageSrc: '/invisible-page.png',
-    imageAlt: "blank white page",
-    projectTitle: 'Invisible landing page.'
   },
   {
     href: '/ping-pong',

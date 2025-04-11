@@ -9,7 +9,7 @@ const LabPage = () => {
   return (
     <>
       <main className="w-full flex flex-col lg:p-4 justify-center items-center mx-auto bg-gray-100">
-        <h1 className="mb-4 p-2">A list of projects where I experiment with different API's and technologies.</h1>
+        <h1 className="mb-4 p-2 text-2xl">A list of projects where I experiment with different API's and technologies.</h1>
         <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 sm:grid-rows-4 gap-4 pb-4 justify-items-center items-center mx-auto h-auto sm:h-fit">
           {linkCards.map((card, index) => (
             <Link

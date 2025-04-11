@@ -4,7 +4,9 @@ import { usePathname } from "next/navigation"
 
 export const LayoutWrapper = ({ children }: { children: React.ReactNode }) => {
   const pathname = usePathname()
-  const heightClass = pathname === '/lab' || pathname === '/world-time' || pathname === '/blog' ? '' : 'h-screen'
+  const paths = ['/lab', '/world-time', '/blog', '/blog/']
+
+  const heightClass = paths.some(str => pathname.includes(str)) ? '' : 'h-screen'
 
   return (
     <div

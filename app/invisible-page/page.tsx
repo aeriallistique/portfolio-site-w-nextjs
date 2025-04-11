@@ -98,11 +98,11 @@ const InvisiblePage = () => {
             <h5>A nice website?</h5>
             <h5>An interactive screen build?</h5>
             <h5>An interesting landing page?</h5>
-            <h5>A large scare project?</h5>
+            <h5>A large scale project?</h5>
           </aside>
           <details className="absolute top-0 right-0 pointer-events-auto cursor-pointer w-6/12 text-right text-sm p-2">
-            <summary>Did you know...</summary>
-            <p>Did you know that on the 27-28th of August 2024 I broke the Guinness World Record for most pull-ups in 24 hours by performing 9001 pull-ups?</p>
+            <summary>Fun fact...</summary>
+            <p>On the 27-28th of August 2024 I broke the Guinness World Record for most pull-ups in 24 hours by performing 9001 pull-ups.</p>
           </details>
         </div>
 
