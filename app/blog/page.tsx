@@ -8,7 +8,7 @@ interface Blog {
   blogTitle: string;
   blogContent: string;
   blogImg: string;
-  // other properties as needed
+
 }
 
 
@@ -16,7 +16,7 @@ const Blog = async () => {
   const blogs = await prisma.blog.findMany()
 
   return (
-    <div className='text-center bg-gray-200 h-auto pt-2'>
+    <div className='text-center  h-auto pt-2'>
       <Link
         href={'/server'}
         className='bg-blue-600 rounded-md px-6 py-1 font-medium text-white mx-auto mt-8 text-center'
@@ -27,18 +27,18 @@ const Blog = async () => {
         {blogs.map((blog: Blog) => (
           <section
             key={blog.id}
-            className="max-w-xs w-full flex flex-col justify-center items-center border shadow-xl hover:shadow-2xl rounded-2xl overflow-hidden cursor-pointer h-100 mx-auto"
+            className="max-w-xs w-full flex flex-col justify-center items-center border shadow-xl hover:shadow-2xl rounded-2xl overflow-hidden cursor-pointer h-100 mx-auto bg-gray-200"
           >
             <figure className='w-full'>
               <img
                 src={`${blog.blogImg === '' ? globe : blog.blogImg}`}
                 alt={blog.blogImg === '' ? 'svg vector image of a globe' : blog.blogTitle}
-                className="block w-full h-40 object-cover"
+                className="block w-full h-50 object-cover"
               />
             </figure>
-            <h1 className='text-2xl mt-4 px-4'>{blog.blogTitle}</h1>
+            <h1 className='text-2xl text-blue-900 mt-4 px-4'>{blog.blogTitle}</h1>
             <article className='w-full px-4 h-25 relative overflow-hidden mb-10 flex-grow'>
-              <div className=''>
+              <div className='text-gray-600'>
                 {blog.blogContent}
               </div>
               <div className='absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-gray-200 to-transparent flex justify-center items-end'>
