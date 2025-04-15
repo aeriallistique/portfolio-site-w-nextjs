@@ -4,31 +4,30 @@ import { redirect } from "next/navigation";
 import { revalidatePath } from "next/cache";
 import { cookies } from "next/headers";
 import Link from "next/link";
-import { formatDistanceToNow, parseISO } from 'date-fns';
+import { formatDistanceToNow } from 'date-fns';
 
 async function deletePost(formData: FormData): Promise<void> {
   "use server";
+  const cookie = await cookies()
   const id = formData.get("id") as string;
   try {
     await prisma.blog.delete({
       where: { id }
     });
 
-
     revalidatePath("/blog");
     redirect("/blog");
   } catch (error) {
     console.error("Failed to delete post:", error);
-
-    cookies().set('errorMessage', 'Failed to delete post. Please try again');
+    cookie.set('errorMessage', 'Failed to delete post. Please try again');
     redirect(`/blog/${id}`);
-  } finally { await clearErrorMessage() }
+  }
 }
 
 async function clearErrorMessage(): Promise<void> {
   "use server";
-
-  cookies().delete("errorMessage");
+  const cookie = await cookies()
+  cookie.delete("errorMessage");
   revalidatePath(".");
 }
 
@@ -36,18 +35,20 @@ const BlogId = async ({ params }: { params: { id: string } }) => {
   const { id } = await params;
   const session = await auth();
   const altImgLink = "https://images.pexels.com/photos/31492171/pexels-photo-31492171/free-photo-of-a-red-beetle-on-a-leaf.jpeg?auto=compress&cs=tinysrgb&w=1200";
+  const cookie = await cookies()
 
   const post = await prisma.blog.findUnique({
     where: { id }
   });
-  const errorMessage = cookies().get("errorMessage")?.value || null
 
   if (!post) {
     redirect("/blog");
   }
+  const timeAgo = formatDistanceToNow(post.addedAt, { addSuffix: true })
+  const rawError = cookie.get("errorMessage")?.value || null;
 
-  const timeAgo = post.addedAt ? formatDistanceToNow(post.addedAt, { addSuffix: true }) : 'earlier today';
 
+  const errorMessage = rawError
 
   return (
     <>
@@ -76,9 +77,7 @@ const BlogId = async ({ params }: { params: { id: string } }) => {
         <h1 className="text-3xl text-center py-4">
           {post.blogTitle}
         </h1>
-        <span className="block w-full text-center text-gray-400 mb-4">
-          Created: {timeAgo}
-        </span>
+        <span className="block w-full text-center text-gray-500">Created: {timeAgo}</span>
         <article className="px-2 w-full text-center">
           {post.blogContent}
         </article>
