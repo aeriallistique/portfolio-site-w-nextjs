@@ -2,14 +2,14 @@ import { auth } from "@/auth";
 import prisma from "@/db";
 import { redirect } from "next/navigation";
 import { revalidatePath } from "next/cache";
-import { cookies } from "next/headers";
 import Link from "next/link";
 import { formatDistanceToNow } from 'date-fns';
+import ErrorAlert from "@/app/components/ErrorAlert";
 
 async function deletePost(formData: FormData): Promise<void> {
   "use server";
-  const cookie = await cookies()
-  const id = formData.get("id") as string;
+  // const id = formData.get("id") as string;
+  const id = '67f93089a637eac5d52e2050'
   try {
     await prisma.blog.delete({
       where: { id }
@@ -18,24 +18,16 @@ async function deletePost(formData: FormData): Promise<void> {
     revalidatePath("/blog");
     redirect("/blog");
   } catch (error) {
+
     console.error("Failed to delete post:", error);
-    cookie.set('errorMessage', 'Failed to delete post. Please try again');
-    redirect(`/blog/${id}`);
+    redirect(`/blog/${id}?error=Failed`);
   }
 }
 
-async function clearErrorMessage(): Promise<void> {
-  "use server";
-  const cookie = await cookies()
-  cookie.delete("errorMessage");
-  revalidatePath(".");
-}
-
-const BlogId = async ({ params }: { params: { id: string } }) => {
+const BlogId = async ({ params, searchParams }: { params: { id: string }; searchParams: { error?: string } }) => {
   const { id } = await params;
   const session = await auth();
   const altImgLink = "https://images.pexels.com/photos/31492171/pexels-photo-31492171/free-photo-of-a-red-beetle-on-a-leaf.jpeg?auto=compress&cs=tinysrgb&w=1200";
-  const cookie = await cookies()
 
   const post = await prisma.blog.findUnique({
     where: { id }
@@ -45,10 +37,9 @@ const BlogId = async ({ params }: { params: { id: string } }) => {
     redirect("/blog");
   }
   const timeAgo = formatDistanceToNow(post.addedAt, { addSuffix: true })
-  const rawError = cookie.get("errorMessage")?.value || null;
+  const errorMessage = searchParams.error || null;
 
 
-  const errorMessage = rawError
 
   return (
     <>
@@ -59,15 +50,8 @@ const BlogId = async ({ params }: { params: { id: string } }) => {
         &lArr; Go back
       </Link>
       <main className="w-11/12 rounded-2xl my-8 overflow-hidden mx-auto md:w-8/12 bg-gray-200 pb-4">
-        {errorMessage && (
-          <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded my-4">
-            {errorMessage}
-            {/* Form to clear the error message */}
-            <form action={clearErrorMessage} className="inline ml-2">
-              <button type="submit" className="text-sm underline cursor-pointer">Dismiss</button>
-            </form>
-          </div>
-        )}
+        {errorMessage && <ErrorAlert />}
+
         <figure>
           <img
             src={post?.blogImg || altImgLink} alt={post.blogTitle}
