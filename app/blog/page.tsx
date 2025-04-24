@@ -16,10 +16,10 @@ const Blog = async () => {
   const blogs = await prisma.blog.findMany()
 
   return (
-    <div className='text-center  h-auto pt-2'>
+    <div className='text-center  h-auto pt-2 bg-gray-200'>
       <Link
         href={'/server'}
-        className='bg-blue-600 rounded-md px-6 py-1 font-medium text-white mx-auto mt-8 text-center'
+        className='bg-blue-600 rounded-md px-6 py-1 font-medium text-white mx-auto my-8 text-center'
       >
         Dashboard
       </Link>

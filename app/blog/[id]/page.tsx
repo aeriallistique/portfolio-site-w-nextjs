@@ -8,8 +8,8 @@ import ErrorAlert from "@/app/components/ErrorAlert";
 
 async function deletePost(formData: FormData): Promise<void> {
   "use server";
-  // const id = formData.get("id") as string;
-  const id = '67f93089a637eac5d52e2050'
+  const id = formData.get("id") as string;
+  // const id = '67f93089a637eac5d52e2050'
   try {
     await prisma.blog.delete({
       where: { id }
@@ -18,7 +18,6 @@ async function deletePost(formData: FormData): Promise<void> {
     revalidatePath("/blog");
     redirect("/blog");
   } catch (error) {
-
     console.error("Failed to delete post:", error);
     redirect(`/blog/${id}?error=Failed`);
   }
@@ -37,7 +36,7 @@ const BlogId = async ({ params, searchParams }: { params: { id: string }; search
     redirect("/blog");
   }
   const timeAgo = formatDistanceToNow(post.addedAt, { addSuffix: true })
-  const errorMessage = searchParams.error || null;
+  const errorMessage = await searchParams.error || null;
 
 
 

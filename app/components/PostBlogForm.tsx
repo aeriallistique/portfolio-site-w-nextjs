@@ -1,6 +1,4 @@
 
-import { loginWithCred } from "@/actions/auth"
-import AuthButton from "./AutButton"
 import Form from "next/form";
 import prisma from "@/db";
 import { revalidatePath } from "next/cache";
